@@ -57,20 +57,28 @@ WHERE country IN ('Afghanistan', 'Bangladesh', 'China');
 # and VARCHAR are significant).
 ALTER TABLE actor ADD Actor_Description TINYBLOB;
 
-SELECT * FROM actor;
-DESCRIBE actor;
-
 # 3b. Very quickly you realize that entering descriptions for each actor is too much effort. 
 # Delete the description column.
 ALTER TABLE actor DROP COLUMN Actor_Description;
 
+#4a. List the last names of actors, as well as how many actors have that last name.
+SELECT last_name, 
+COUNT(*) AS "actors_with_last_name"
+FROM actor
+GROUP BY last_name;
+
+# 4b. List last names of actors and the number of actors who have that last name, 
+# but only for names that are shared by at least two actors.
+SELECT last_name, 
+COUNT(*) AS "actors_with_last_name"
+FROM actor
+GROUP BY last_name
+HAVING actors_with_last_name >=  2;
+
+
 
 
 /*
-3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the description column.
-4a. List the last names of actors, as well as how many actors have that last name.
-4b. List last names of actors and the number of actors who have that last name, but only for names that are shared by at least two actors
-4c. The actor HARPO WILLIAMS was accidentally entered in the actor table as GROUCHO WILLIAMS. Write a query to fix the record.
 4d. Perhaps we were too hasty in changing GROUCHO to HARPO. It turns out that GROUCHO was the correct name after all! In a single query, if the first name of the actor is currently HARPO, change it to GROUCHO.
 
 5a. You cannot locate the schema of the address table. Which query would you use to re-create it?
