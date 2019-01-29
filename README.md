@@ -19,10 +19,10 @@ At the same time this is an analysis for an assigment related to Data Analytics 
 
 #### **2. Data cleaning**
 - Data is most of it already clean. 
-- Some exercises will be to fine tuning some information in the Database. 
+- Some exercises will be done to "fine-tune" some information in the Database. 
 
 #### **3. Data analysis** 
-- Using SQL grammmar we are generating most of the analysis.
+- Using SQL grammar we are generating most of the analysis.
 - Reference:    [H2Database](http://www.h2database.com/html/grammar.html).
 
 #### **4. Data conclusions** 
