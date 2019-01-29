@@ -215,16 +215,46 @@ ON city.country_id = country.country_id;
 
 # 7h. List the top five genres in gross revenue in descending order. (Hint: you may
 # need to use the following tables: category, film_category, inventory, payment, and rental.)
+SELECT * FROM category; 
+SELECT * FROM film_category; 
+SELECT * FROM inventory; 
+SELECT * FROM payment; 
+SELECT * FROM rental; 
+
+SELECT name, SUM(payment.amount) AS 'Total amount' FROM category
+INNER JOIN film_category
+ON film_category.category_id = category.category_id
+INNER JOIN inventory
+ON inventory.film_id = film_category.film_id
+INNER JOIN rental
+ON  inventory.inventory_id = rental.inventory_id
+INNER JOIN payment
+ON payment.rental_id = rental.rental_id
+GROUP BY name
+ORDER BY SUM(payment.amount) DESC
+LIMIT 5; 
+
 # 8a. In your new role as an executive, you would like to have an easy way of viewing the 
 # Top five genres by gross revenue. Use the solution from the problem above to create a view. 
-# If you haven't solved 7h, you can substitute another query to create a view.
+
+CREATE VIEW top_five_genres AS 
+SELECT name, SUM(payment.amount) AS 'Total amount' FROM category
+INNER JOIN film_category
+ON film_category.category_id = category.category_id
+INNER JOIN inventory
+ON inventory.film_id = film_category.film_id
+INNER JOIN rental
+ON  inventory.inventory_id = rental.inventory_id
+INNER JOIN payment
+ON payment.rental_id = rental.rental_id
+GROUP BY name
+ORDER BY SUM(payment.amount) DESC
+LIMIT 5; 
+
 # 8b. How would you display the view that you created in 8a?
+SELECT * FROM sakila.top_five_genres;
+
 # 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
+DROP VIEW top_five_genres;
 
 
-
-
-
-
-
-/*
