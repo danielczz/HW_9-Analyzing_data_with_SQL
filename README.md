@@ -9,6 +9,10 @@ For business purposes usually we need to act quick on data. That is what we are 
 
 At the same time this is an analysis for an assigment related to Data Analytics Bootcamp. 
 
+- Please review main SQL script for programming commands: 
+[main SQL Script](https://github.com/danielczz/HW_9-Analyzing_data_with_SQL/blob/master/main_script_Analyzing_data_with_SQL.sql)
+
+
 #### **1. Data gathering**
 - Data we are currently using is related to film industry and customer ecosystem analysis, SQL database is called sakila. 
 
