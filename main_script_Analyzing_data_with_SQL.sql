@@ -70,10 +70,12 @@ GROUP BY last_name;
 # 4b. List last names of actors and the number of actors who have that last name, 
 # but only for names that are shared by at least two actors.
 SELECT last_name, 
-COUNT(*) AS "actors_with_last_name"
+COUNT(*) AS "actors_with_last_name_greater_than_2"
 FROM actor
 GROUP BY last_name
-HAVING actors_with_last_name >=  2;
+HAVING actors_with_last_name_greater_than_2 >= 2;
+
+
 
 
 
