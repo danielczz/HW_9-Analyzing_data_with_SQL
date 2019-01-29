@@ -175,39 +175,44 @@ INNER JOIN film_category
 ON film.film_id = film_category.film_id
 WHERE category_id LIKE (SELECT category_id FROM category
 WHERE name = 'Family');
+	
+    # Option 2 
 
+SELECT * FROM film_list
+WHERE category = 'Family';
 
 # 7e. Display the most frequently rented movies in descending order.
 
+# Join for inventory and film list
+SELECT inventory.inventory_id,inventory.film_id, film_list.FID, film_list.title, film_list.description 
+FROM film_list
+INNER JOIN inventory 
+ON 
+inventory.film_id = film_list.FID;
 
-
-
-SELECT *
-FROM film
-INNER JOIN film_category 
-ON film.film_id = film_category.film_id
-WHERE category_id LIKE (SELECT category_id FROM category
-WHERE name = 'Family');
-
-
-
-SELECT title, description, rating 
-FROM film
-INNER JOIN film_category 
-ON film.film_id = film_category.film_id;
-
-
-
-
-show tables;
-
-
-
-
-
+SELECT inventory.film_id, inventory.inventory_id, film_list.title, film_list.description, COUNT(rental.rental_id) AS 'Amount of rentals by inventory ID' 
+FROM film_list
+INNER JOIN inventory 
+ON 
+inventory.film_id = film_list.FID
+INNER JOIN rental
+ON 
+inventory.inventory_id = rental.inventory_id
+GROUP BY rental.inventory_id
+ORDER BY COUNT(rental.rental_id) DESC;
 
 # 7f. Write a query to display how much business, in dollars, each store brought in.
+SELECT store, total_sales FROM sales_by_store;
+
 # 7g. Write a query to display for each store its store ID, city, and country.
+SELECT store.store_id AS 'Store ID' , city.city AS 'City', country.country AS 'Country' FROM store
+INNER JOIN address 
+ON address.address_id = store.address_id
+INNER JOIN city
+ON city.city_id = address.city_id
+INNER JOIN country
+ON city.country_id = country.country_id;
+
 # 7h. List the top five genres in gross revenue in descending order. (Hint: you may
 # need to use the following tables: category, film_category, inventory, payment, and rental.)
 # 8a. In your new role as an executive, you would like to have an easy way of viewing the 
