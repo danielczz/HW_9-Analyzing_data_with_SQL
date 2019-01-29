@@ -10,11 +10,12 @@ For business purposes usually we need to act quick on data. That is what we are 
 At the same time this is an analysis for an assigment related to Data Analytics Bootcamp. 
 
 - Please review main SQL script for programming commands: 
-[main SQL Script](https://github.com/danielczz/HW_9-Analyzing_data_with_SQL/blob/master/main_script_Analyzing_data_with_SQL.sql)
+[main SQL Script](https://github.com/danielczz/HW_9-Analyzing_data_with_SQL/blob/master/main_script_Analyzing_data_with_SQL.sql).
 
 
 #### **1. Data gathering**
-- Data we are currently using is related to film industry and customer ecosystem analysis, SQL database is called sakila. 
+- Data we are currently using is related to film industry and customer DVD rental ecosystem analysis; SQL database is called _sakila_. 
+- Reference: [Sakila DB](https://dev.mysql.com/doc/sakila/en/sakila-history.html). 
 
 #### **2. Data cleaning**
 - Data is most of it already clean. 
@@ -22,7 +23,7 @@ At the same time this is an analysis for an assigment related to Data Analytics 
 
 #### **3. Data analysis** 
 - Using SQL grammmar we are generating most of the analysis.
-- Reference:    [H2Database](http://www.h2database.com/html/grammar.html)
+- Reference:    [H2Database](http://www.h2database.com/html/grammar.html).
 
 #### **4. Data conclusions** 
 
